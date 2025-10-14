@@ -117,7 +117,8 @@
 
     document.getElementById('phishingForm').addEventListener('submit', function(e) {
       e.preventDefault(); // impede envio real
-      document.getElementById('alertPhishing').style.display = 'block';
+      document.getElementById('phishingForm').style.display = 'none'; // oculta o formulário
+      document.getElementById('alertPhishing').style.display = 'block'; // mostra o alerta
     });
   </script>
 </body>
