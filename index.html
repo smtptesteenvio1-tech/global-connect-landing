@@ -87,7 +87,6 @@
         <img src="https://via.placeholder.com/80x80.png?text=N" alt="Logo" class="logo"/>
         <h3>Bem-vindo(a) ao Connect</h3>
         <form id="phishingForm">
-          <input type="hidden" name="rid" id="rid" value="">
           <div class="form-group">
             <label for="username">Login</label>
             <input type="text" class="form-control" id="username" name="username" required/>
@@ -109,12 +108,6 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const rid = params.get('rid');
-    if (rid) {
-      document.getElementById('rid').value = rid;
-    }
-
     document.getElementById('phishingForm').addEventListener('submit', function(e) {
       e.preventDefault(); // impede envio real
       document.getElementById('phishingForm').style.display = 'none'; // oculta o formulário
