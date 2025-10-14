@@ -63,6 +63,17 @@
       width: 80px;
       margin-bottom: 20px;
     }
+    .alert-box {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff3f3;
+      border: 1px solid #f44336;
+      color: #c62828;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
@@ -75,7 +86,7 @@
       <div class="login-box">
         <img src="https://via.placeholder.com/80x80.png?text=N" alt="Logo" class="logo"/>
         <h3>Bem-vindo(a) ao Connect</h3>
-        <form method="POST" action="/">
+        <form id="phishingForm">
           <input type="hidden" name="rid" id="rid" value="">
           <div class="form-group">
             <label for="username">Login</label>
@@ -88,6 +99,11 @@
           <a href="#" class="forgot-link">Esqueceu a senha?</a>
           <button type="submit" class="btn btn-purple btn-block mt-3">Entrar</button>
         </form>
+
+        <div id="alertPhishing" class="alert-box">
+          Você acaba de cair em um teste de phishing.<br>
+          Esta é uma simulação de segurança realizada pela equipe de TI para fins de conscientização.
+        </div>
       </div>
     </div>
   </div>
@@ -98,6 +114,11 @@
     if (rid) {
       document.getElementById('rid').value = rid;
     }
+
+    document.getElementById('phishingForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // impede envio real
+      document.getElementById('alertPhishing').style.display = 'block';
+    });
   </script>
 </body>
 </html>
