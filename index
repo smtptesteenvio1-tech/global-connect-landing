@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Global Connect</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #fff; font-family: sans-serif; }
+    .login-container { max-width: 400px; margin: 100px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; }
+    .btn-gradient { background: linear-gradient(to right, #007bff, #00c6ff); color: white; border: none; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h3 class="text-center">Bem-vindo(a) ao Connect</h3>
+    <form method="POST" action="/">
+      <div class="form-group">
+        <label for="username">Login</label>
+        <input type="text" class="form-control" id="username" name="username" required/>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" id="password" name="password" required/>
+      </div>
+      <button type="submit" class="btn btn-gradient btn-block">Entrar</button>
+    </form>
+  </div>
+</body>
+</html>
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname));
+
+app.post('/', (req, res) => {
+  console.log('Dados recebidos:', req.body);
+  res.send('<h2>Obrigado! Seus dados foram registrados.</h2>');
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+{
+  "name": "global-connect-landing",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2"
+  }
+}
