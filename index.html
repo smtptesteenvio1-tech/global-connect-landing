@@ -12,9 +12,11 @@
 </form>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const rid = params.get('rid');
-  if (rid) {
-    document.getElementById('rid').value = rid;
-  }
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const rid = params.get('rid');
+    if (rid) {
+      document.getElementById('rid').value = rid;
+    }
+  });
 </script>
