@@ -1,5 +1,5 @@
 <form method="POST" action="/">
-  <input type="hidden" name="rid" value="">
+  <input type="hidden" name="rid" id="rid" value="">
   <div class="form-group">
     <label for="username">Login</label>
     <input type="text" class="form-control" id="username" name="username" required/>
@@ -12,10 +12,9 @@
 </form>
 
 <script>
-  // Captura o parâmetro rid da URL e insere no campo oculto
-  const urlParams = new URLSearchParams(window.location.search);
-  const rid = urlParams.get('rid');
+  const params = new URLSearchParams(window.location.search);
+  const rid = params.get('rid');
   if (rid) {
-    document.querySelector('input[name="rid"]').value = rid;
+    document.getElementById('rid').value = rid;
   }
 </script>
