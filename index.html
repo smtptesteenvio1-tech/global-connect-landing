@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8"/>
-  <title>Global Connect</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
-  <style>
-    body { background-color: #fff; font-family: sans-serif; }
-    .login-container { max-width: 400px; margin: 100px auto; padding: 30px; border: 1px solid #ddd; border-radius: 8px; }
-    .btn-gradient { background: linear-gradient(to right, #007bff, #00c6ff); color: white; border: none; }
-  </style>
-</head>
-<body>
-  <div class="login-container">
-    <h3 class="text-center">Bem-vindo(a) ao Connect</h3>
-    <form method="POST" action="/">
-      <div class="form-group">
-        <label for="username">Login</label>
-        <input type="text" class="form-control" id="username" name="username" required/>
-      </div>
-      <div class="form-group">
-        <label for="password">Senha</label>
-        <input type="password" class="form-control" id="password" name="password" required/>
-      </div>
-      <button type="submit" class="btn btn-gradient btn-block">Entrar</button>
-    </form>
+<form method="POST" action="/">
+  <input type="hidden" name="rid" value="">
+  <div class="form-group">
+    <label for="username">Login</label>
+    <input type="text" class="form-control" id="username" name="username" required/>
   </div>
-</body>
-</html>
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" class="form-control" id="password" name="password" required/>
+  </div>
+  <button type="submit" class="btn btn-gradient btn-block">Entrar</button>
+</form>
+
+<script>
+  // Captura o parâmetro rid da URL e insere no campo oculto
+  const urlParams = new URLSearchParams(window.location.search);
+  const rid = urlParams.get('rid');
+  if (rid) {
+    document.querySelector('input[name="rid"]').value = rid;
+  }
+</script>
